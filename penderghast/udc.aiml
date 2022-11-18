@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    
+    <!--Introduction to user-->
+    <category>
+        <pattern> * </pattern>
+        <template> Sorry, I didn't understand that. To get started Say hello! </template>
+    </category>
+    
+    <category>
+        <pattern> HELLO </pattern>
+        <template> <srai> HI </srai> </template>
+    </category>
+    
+    <category>
+        <pattern> HI </pattern>
+        <template> <srai> HI </srai> </template>
+    </category>
+    
+    <category>
+        <pattern> START </pattern>
+        <template> <srai> HI </srai> </template>
+    </category>
+    
+    <category>
+        <pattern> RESTART </pattern>
+        <template> <srai> HI </srai> </template>
+    </category>
+    
+    <category>
+        <pattern> START OVER </pattern>
+        <template> <srai> HI </srai> </template>
+    </category>
+    
+    <category>
+        <pattern> HI </pattern>
+        <template>
+        <message> Hello, My name Is Penderghast. </message>
+        <message> What is your name? </message>
+        <message> Respond with "My name is..." </message>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>
+            <message>Hello <formal><set name="username"><star /></set></formal>!</message>
+            <message>Are you looking for advice on what career to pusue?</message>
+            
+        <button>
+          <text> Yes </text>
+          <postback> Advice </postback>
+        </button>
+        
+        <button>
+          <text> No </text>
+          <postback> No Advice </postback>
+        </button>
+        
+        </template>
+    </category>
+    
+    <category>
+      <pattern> No Advice </pattern>
+      <template> I see! I am unable to assist with anythinng else at the moment, please come back if you would like some career advice. </template>
+    </category>
+  
+  <category>
+      <pattern> Advice </pattern>
+      <template>
+          <message> Perfect! I'd be happy to help! </message>
+          <message> Are you a computer science major? </message>
+          
+        <button>
+          <text> Yes </text>
+          <postback> CS Major </postback>
+        </button>
+     
+        <button>
+          <text> No </text>
+          <postback> Other </postback>
+        </button>
+        
+      </template>
+  </category>
+  
+  <category>
+      <pattern> Other </pattern>
+      <template> 
+        <message>Oh, well I am only available to give advice to Computer Science students. Please contact your school counselor for career advice outside of computer science fields!</message> 
+        <message>Good Luck!</message>
+      </template>
+  </category>
+    
+ <category>
+      <pattern> CS Major </pattern>
+      <template> 
+      <message> Perfect! To get us started i'm going to ask you a few questions. </message> 
+      <message> Which of these topics are you most interested in? </message>
+      
+      <button>
+          <text> Programming? </text>
+          <postback> CODING </postback>
+      </button>
+     
+      <button>
+          <text> Information Security? </text>
+          <postback> SECURITY </postback>
+      </button>
+      
+      <button>
+          <text> Math? </text>
+          <postback> MATHEMATICS </postback>
+      </button>
+      
+      </template>
+ </category>
+ 
+  <category>
+      <pattern> RETURN TO CS Major </pattern>
+      <template> 
+      <message> That's fine! let's look at a few different options... </message> 
+      <message> Which of these topics are you most interested in? </message>
+      
+      <button>
+          <text> Programming? </text>
+          <postback> CODING </postback>
+      </button>
+     
+      <button>
+          <text> Information Security? </text>
+          <postback> SECURITY </postback>
+      </button>
+      
+      <button>
+          <text> Math? </text>
+          <postback> MATHEMATICS </postback>
+      </button>
+      
+      </template>
+ </category>
+
+  <category>
+      <pattern> CODING </pattern>
+      <template> 
+      <message> Are you more interested in designing websites or building standalone software? </message>
+      
+      <button>
+          <text> Websites! </text>
+          <postback> WEBSITES </postback>
+      </button>
+      
+      <button>
+          <text> Software! </text>
+          <postback> SOFTWARE </postback>
+      </button>
+      
+      </template>
+  </category>
+  
+  <category>
+      <pattern> WEBSITES </pattern>
+      <template> 
+      <message>Then, You could become a web developer!</message>
+      <message>Here's some details about being a web developer</message>
+      <button>
+          <text> Web Developer</text>
+          <url> https://www.betterteam.com/web-developer-job-description </url>
+      </button>
+      <reply>
+          <text>I Love it Thanks!</text>
+          <postback> EXIT </postback>
+      </reply>
+      
+      <reply>
+          <text>I don't know if this is for me...</text>
+          <postback> RETURN TO CS MAJOR </postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern> SOFTWARE </pattern>
+      <template> 
+      <message>In that case the Computer Science world is your oyster!</message>
+      <message>Software Developers are in high demand, but there are several different kinds to be aware of...</message>
+      <button>
+          <text> Full Stack Developer </text>
+          <url> https://www.lewagon.com/tech-jobs/web-development/full-stack-developer#:~:text=A%20Full%20Stack%20Developer%20is,to%20do%20their%20job%20well. </url>
+      </button>
+      
+        <button>
+            <text>Junior Software Developer</text>
+            <url>https://www.betterteam.com/junior-software-developer-job-description</url>
+        </button>
+        
+        <button>
+            <text>Database Developer</text>
+            <url>https://www.discoverdatascience.org/career-information/database-developer/#:~:text=Database%20developers%2C%20also%20known%20as,and%20changes%20in%20user%20needs.</url>
+        </button>
+        <reply>
+          <text>I Love it Thanks!</text>
+          <postback> EXIT </postback>
+      </reply>
+      
+      <reply>
+          <text>I don't know if this is for me...</text>
+          <postback> RETURN TO CS MAJOR </postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern> SECURITY </pattern>
+      <template> 
+      <message> Would you rather to Defend from "Hackers" or Break into different security systems to find vulnerabilities? </message>
+      
+      <button>
+          <text> Defend </text>
+          <postback> PROTECT </postback>
+      </button>
+      
+      <button>
+          <text> Attack </text>
+          <postback> TEST </postback>
+      </button>
+      
+      </template>
+  </category>
+  
+  <category>
+      <pattern> PROTECT </pattern>
+      <template> You should consider a job as a Cyber Security Specialist! 
+      <button>
+          <text> Cyber Security Specialist </text>
+          <url> https://www.mycomputercareer.edu/news/what-does-a-cyber-security-specialist-do/ </url>
+      </button>
+      <reply>
+          <text>I Love it Thanks!</text>
+          <postback> EXIT </postback>
+      </reply>
+      
+      <reply>
+          <text>I don't know if this is for me...</text>
+          <postback> RETURN TO CS MAJOR </postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern> TEST </pattern>
+      <template> You could become a penetration tester! 
+      <button>
+          <text> Penetration Tester </text>
+          <url> https://www.4cornerresources.com/job-descriptions/penetration-tester/ </url>
+      </button>
+      <reply>
+          <text>I Love it Thanks!</text>
+          <postback> EXIT </postback>
+      </reply>
+      
+      <reply>
+          <text>I don't know if this is for me...</text>
+          <postback> RETURN TO CS MAJOR </postback>
+          </reply>
+      </template>
+  </category>
+
+  <category>
+      <pattern> MATHEMATICS </pattern>
+      <template> 
+      <message> Do you prefer statistics or number theory? </message>
+      
+      <button>
+          <text> STATISTICS </text>
+          <postback> STATS </postback>
+      </button>
+      
+      <button>
+          <text> NUMBER THEORY </text>
+          <postback> NUMBERS </postback>
+      </button>
+      
+      </template>
+  </category>
+  
+  <category>
+      <pattern> STATS </pattern>
+      <template> You should consider becoming a data scientist! 
+      <button>
+          <text> Data Scientist </text>
+          <url> https://www.northeastern.edu/graduate/blog/what-does-a-data-scientist-do/ </url>
+      </button>
+      <reply>
+          <text>I Love it Thanks!</text>
+          <postback> EXIT </postback>
+      </reply>
+      
+      <reply>
+          <text>I don't know if this is for me...</text>
+          <postback> RETURN TO CS MAJOR </postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern> NUMBERS </pattern>
+      <template> You may find cryptography to be an interesting job! 
+      <button>
+          <text> Cryptographer </text>
+          <url> https://www.cybersecurityjobs.com/cryptographer-jobs/ </url>
+      </button>
+      <reply>
+          <text>I Love it Thanks!</text>
+          <postback> EXIT </postback>
+      </reply>
+      
+      <reply>
+          <text>I don't know if this is for me...</text>
+          <postback> RETURN TO CS MAJOR </postback>
+          </reply>
+      </template>
+     
+  </category>
+  
+    <category>
+        <pattern> EXIT </pattern>
+        <template> Thank you for stopping by! My name is Penderghast and i hope you have a nice day! </template>
+    </category>
+
+</aiml>
