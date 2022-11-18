@@ -5,3 +5,5 @@ You are a career advisor working for a university that offers many degrees, incl
 
 
 You have been asked to identify five job types that require an undergraduate degree in computer science and to construct a chatbot in the Pandorabot environment. The chatbot will interact with individual students, help them identify their strengths and preferences, and help them decide which career options to consider.
+
+This bot is written in AIML
